@@ -45,7 +45,7 @@ function SignupForm() {
       if (error?.message) {
         toast.error(error.message);
       } else {
-        router.push("/verify");
+        router.push("/login");
       }
     } catch (error) {
       toast.error("Something went wrong. Try Again!");
