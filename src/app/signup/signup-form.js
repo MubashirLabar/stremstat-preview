@@ -45,7 +45,8 @@ function SignupForm() {
       if (error?.message) {
         toast.error(error.message);
       } else {
-        router.push("/login");
+        router.push("/");
+        toast.success("User Created Successfully!");
       }
     } catch (error) {
       toast.error("Something went wrong. Try Again!");
