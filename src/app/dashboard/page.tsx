@@ -135,7 +135,7 @@ const r2Columns = [
   },
   {
     name: "S2",
-    selector: (row: any) => "Wy_11",
+    selector: (row: any) => (row?.s2 ? row.s2 : "-"),
     width: "110px",
   },
   {
@@ -222,6 +222,7 @@ export default function Home() {
   const fetchData = async () => {
     setIsLoading(true);
     try {
+      let _reports = [];
       const res = await fetchReports({
         r: rValue?.value,
         sdate: moment(startDate).format("MM-DD-YYYY"),
@@ -233,7 +234,9 @@ export default function Home() {
       } else if (rValue?.value === 1) {
         setReport(res["Daily Summary Report"] || []);
       } else {
-        setReport(res["Daily Detail Report"] || []);
+        let wh_11_records = res["Daily Detail Report"] || [];
+        const newArray = wh_11_records.filter((x: any) => x.s2 === "wy_11");
+        setReport(newArray);
       }
       setIsLoading(false);
     } catch (err) {
@@ -311,7 +314,7 @@ export default function Home() {
           Keyword: row.keyword,
           Program: row.program,
           S1: row.s1,
-          S2: "Wy_11",
+          S2: row?.s2,
           S3: row.s3,
           S4: row.s4,
           Searches: row.searches,
