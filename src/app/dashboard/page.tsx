@@ -383,7 +383,7 @@ export default function Home() {
               disabled={logoutLoading}
             >
               {logoutLoading ? (
-                <SpinLoader className={"h-5 w-5 border-white"} />
+                <SpinLoader className={"h-4 w-4 border-white"} />
               ) : (
                 "Logout"
               )}
