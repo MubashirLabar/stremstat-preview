@@ -141,12 +141,12 @@ const r2Columns = [
   {
     name: "S3",
     selector: (row: any) => (row?.s3 ? row.s3 : "-"),
-    width: "100px",
+    width: "170px",
   },
   {
     name: "S4",
     selector: (row: any) => (row?.s4 ? row.s4 : "-"),
-    width: "100px",
+    width: "150px",
   },
   {
     name: "Searches",
